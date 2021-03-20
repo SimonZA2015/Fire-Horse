@@ -6,9 +6,18 @@
     text-align: center;
 }
 .body text {
+    color: dimgray;
     text-decoration: none;
 }
+.body.opened {
+    background-color: #767676;
+    color: #eaeaea;
+}
 
-.active {
-    background-color: darkgrey;
+.nav {
+    text-decoration: none;
+}
+.nav.opened {
+    color: black;
+    text-decoration: underline;
 }

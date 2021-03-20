@@ -12,8 +12,19 @@
    grid-area: header;
 }
 .body img {
-   height: 50px;
    position: absolute;
-   left: 10px;
+}
 
+.logo {
+
+   height: 50px;
+   left: 10px;
+}
+
+.avatar {
+   height: 45px;
+   width: 45px;
+   right: 10px;
+   object-fit: cover;
+   border-radius: 100%;
 }

@@ -4,14 +4,15 @@ import Banner from "./More/ProfileBanner";
 import ProfileInfo from "./More/ProfileInfo";
 import ProfilePosts from "./More/ProfilePosts";
 
-// import style from "./Profile.module.css";
+import style from "./Profile.module.css";
+import {profile} from "../../../../text/images";
 
 const Profile = () => {
 
     return (
-        <div>
-            <Banner image={'https://cdn.hipwallpaper.com/i/24/81/kajKoz.jpg'} />
-            <ProfileInfo name='Лейпциг' city='Воронеж' avatar='https://lh3.googleusercontent.com/3f2DbSCgnR0PVPGdnhyBjd2QvCJGqUvLZgxEi080VgLwUzcV9QCoIPIAAblSkyN8sXWLjD9gLdM0_TCrfJWVQf69hLWHgjR60yB9y-rTGt1YIzQh7Am_iUOwss_lFo9Q68FifWigmTyVcWLkoFzuAbX62VpZ97yK8y5NO_RCT_CsxNpCalbcg4qJ0yqpZ37qhdNloP59Z-S9WMYwOgjkZ9_4Wft7JuNZqmvubAAfAc6i-MEec_KhPmY0x944UitBnRIkvEJhKtLfi7bIWv3KOd0tuhE9iKgKPyc09DG_EHGMJNROK0e8nNrYqVDFs-HQipoDoCXk3yj_RFOp_4SwWcQrqD8OXr04VaxWDwxAZCwVrHKnHU2g3f5uIB7hOuGL3m7oZ-A73GskG-bo6_Ltpa2jHMfs409obKK6sxfxVLGcyjk-rBW3H3hQ6gEJB4VwJjkdtRNxsSvSIVL6n0G5nQXk5-RK4picAcyAhbE4a4G2J7mduZxLQM3mZCkY1VUi7ndI8FBdV6WZst1pXyOribi_YGaJUZnWhfcWxMQ3lJqYtBVtOscFzZuzEdfGKW24nihoP3eR0N4bxFVd6DAp5aTqFvSZb5j76TiiB_WzV-uEJhFfKQW2q4sflNv9Noqk9BFbA4zxKNJbGkQFSucf34-Q-vhh_SkL3Ush7cP4EEoHq2xlShRB0FYDe2y5EXLrD2DrjGwvU9L0TqWzQsMb7EsO=w695-h924-no?authuser=0'/>
+        <div className={style.body}>
+            <Banner image={'https://lh3.googleusercontent.com/s_EVPTSbEF-QtqGXDf5CHJgEKViU8EBE4JM8jAMCXVjqG3651ff8Z82o-0weMCzeAYpSatfmMjLWeh4rC4MbWUI4Wk9tJfxVHfALQ8fEyHdg4PbHSK_3CJLDThfHunO2dqJ6pV1irHy6LC2QQLSZcIP88ASgcfXXpAUQcQbQvs6Oihxo54WVDM-XSl0o9vVqTccbZhoMKcOEgujdRtQ9MgiGLHL7GtWg29kAHLAT1ItgurwGLIyBye7IpaxJVHCepMax8xhUqbR7NX_ha7Z8hGvbfmVqQXgE6CASwYLTg9CurKu9uVg70vBokMLwIC6mE8zC6sI3Io2C43KNOsxuxIgJyVEZzgVRttHLqwOfc-G4C6fzyjpm5jfRsIkmY4FyfQFolXMdtaL4UKkw_foP9hhQ8EIQCWInMhC8s-q4i5HtnInt2a5mVBXGjGX5irpx6vo227dGCVBSFXgVtOXWZE_Bs08tXRl-RSgY1LsHuXyx5bcSNPJe58_fErqeTgvUXVr1Qh2TyB23jbawrQzyyDFde8CEwr-y9yoE6byg9GsDMEgMDRXNbwqTdHJykZ6T-zAUIF45_68PoBSbpgh4fKjHmeEJG488e7VARIre9pDbrjq337aFHMqBZgihHT9e3828yrsHujd6PTp0sj9LcOpYD5ON2X6U_ds_jj_vUz5hD9fDHCF3EyqcSdORlAtJ6ONydgRDJo7KC9Nthv-TzwCk=w695-h924-no?authuser=0'} />
+            <ProfileInfo name={profile.name} city={profile.city} avatar={profile.image} age={profile.age} />
             <ProfilePosts />
         </div>
     )
