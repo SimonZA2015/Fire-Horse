@@ -1,0 +1,60 @@
+.logoHeader {
+  position: absolute;
+  left: 5px ;
+  align-content: center;
+}
+.logoHeader img {
+  align-content: center;
+}
+
+.menuHeader {
+  position: absolute;
+  right: 5px ;
+  align-content: center;
+}
+
+.App {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  text-align: center;
+  display: grid;
+  grid-template-areas:
+  'header header'
+  'nav content';
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 0;
+}
+
+.App-header {
+  width: 100%;
+  background-color: #eaeaea;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  border-radius: 0 0 10px 10px;
+  grid-area: header;
+}
+.App-header img {
+  height: 50px;
+  position: absolute;
+  left: 10px;
+
+}
+
+.App-nav {
+  grid-area: nav;
+}
+
+.App-content {
+  grid-area: content;
+}
+
+.App-link {
+  color: #61dafb;
+}
