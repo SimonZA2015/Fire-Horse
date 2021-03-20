@@ -1,14 +1,15 @@
 import React from 'react';
+import Button from "./More/Button";
 
 const Navbar = () => {
 
     return (
         <nav className='App-nav'>
-            <div><a>Profile</a></div>
-            <div><a>News</a></div>
-            <div><a>Messages</a></div>
-            <div><a>Music</a></div>
-            <div><a>Sittings</a></div>
+            <Button text={'Profile'} url={'/profile'} />
+            <Button text={'News'} url={'/news'} />
+            <Button text={'Messages'} url={'/dialogs'} />
+            <Button text={'Music'} url={'/audio'} />
+            <Button text={'Sittings'} url={'/sittings'} />
         </nav>
     )
 }

@@ -1,20 +1,19 @@
-.banner {
-    width: 100%;
+.body {
     height: 100px;
-    object-fit: cover;
-}
-
-.profileInfo {
-    height: 200px;
     display: flex;
+    margin-bottom: 5px;
 }
 
-.avatar {
+.body img {
     width: 100px;
     height: 100px;
     object-fit: cover;
 }
 
 .infoBlock {
-
+    width: 100%;
+}
+.infoBlock h4 {
+    text-align: center;
+    margin: 0;
 }

@@ -1,0 +1,14 @@
+.body {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #eaeaea;
+    margin-top: 5px;
+    text-align: center;
+}
+.body text {
+    text-decoration: none;
+}
+
+.active {
+    background-color: darkgrey;
+}
