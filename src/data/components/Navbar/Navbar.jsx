@@ -1,10 +1,12 @@
 import React from 'react';
 import Button from "./More/Button";
 
-const Navbar = () => {
+import style from './Navbar.module.css';
+
+const Navbar = (props) => {
 
     return (
-        <nav className='App-nav'>
+        <nav className={style.body}>
             <Button text={'Profile'} url={'/profile'} />
             <Button text={'News'} url={'/news'} />
             <Button text={'Messages'} url={'/dialogs'} />

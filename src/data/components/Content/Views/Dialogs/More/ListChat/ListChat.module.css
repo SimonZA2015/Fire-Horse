@@ -1,0 +1,9 @@
+.body {
+    display: grid;
+    grid-template-rows: 95% 5%;
+}
+
+.list div {
+    align-content: end;
+    padding: 5px;
+}

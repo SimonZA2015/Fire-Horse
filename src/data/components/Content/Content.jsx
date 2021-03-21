@@ -8,7 +8,8 @@ import News from "./Views/News/News";
 
 import style from './Content.module.css';
 
-const Content = () => {
+
+const Content = (props) => {
 
     return (
         <div className={style.body}>

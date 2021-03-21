@@ -6,6 +6,7 @@ const ItemsChat = (props) => {
 
     return (
         <div className={style.body}>
+            <img src={props.image} alt={''} />
             {props.text}
         </div>
     )

@@ -23,14 +23,13 @@
   'header header'
   'nav content';
   grid-template-rows: 50px 1fr;
-  grid-template-columns: 2fr 10fr;
+  grid-template-columns: 0 10fr;
   grid-gap: 0;
 }
 
-.App-nav {
-  grid-area: nav;
-}
+@media (min-width: 750px ) {
+  .App {
+    grid-template-columns: 2fr 10fr;
+  }
 
-.App-content {
-  grid-area: content;
 }

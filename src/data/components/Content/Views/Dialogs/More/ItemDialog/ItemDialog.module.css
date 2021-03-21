@@ -1,6 +1,6 @@
 .body {
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 0% 100%;
     margin: 5px;
     background-color: #d9d9d9;
     border-radius: 10px;
@@ -26,4 +26,10 @@
 .navL {
     text-decoration: none;
     color: black;
+}
+
+@media (min-width: 650px) {
+    .body {
+        grid-template-columns: 15% 85%;
+    }
 }
