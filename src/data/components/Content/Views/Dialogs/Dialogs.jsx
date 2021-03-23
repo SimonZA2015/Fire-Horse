@@ -10,8 +10,8 @@ const Dialogs = (props) => {
 
     return (
         <div className={style.body} >
-            <ListDialogs setId={(ide) => setId(ide)} />
-            <ListChat id={id} />
+            <ListDialogs profileInfo={props.profileInfo} messagesList={props.messagesList} setId={(ide) => setId(ide)} />
+            <ListChat profileInfo={props.profileInfo} messagesList={props.messagesList} id={id} />
         </div>
     )
 }
