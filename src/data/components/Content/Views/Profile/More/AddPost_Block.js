@@ -7,7 +7,7 @@ const AddPost_Block = () => {
     return (
         <div className={style.body}>
             <input placeholder={'игогокнуть'} />
-            <button>Add post</button>
+            <button >Add post</button>
         </div>
     )
 }

@@ -1,15 +1,17 @@
 import React from 'react';
+import TitleHeader from "./TitleHeader/TitleHeader";
+import {profile} from "../../base/info";
+import logo from '../../media/logo.png'
 
 import style from './Header.module.css';
-import {profile} from "../../base/info";
-import TitleHeader from "./TitleHeader/TitleHeader";
+import {NavLink} from "react-router-dom";
 
 const Header = () => {
 
     return (
         <header className={style.body} >
-            <img className={style.logo} src='https://lh3.googleusercontent.com/Yi1jIbBrtlsnr8gOFSMW-Qs9RDNhlUVlE8uOlcrUFBON1kzuogzVe2IAEKMaiPRJfTRfI3z7tfr10SKXlITV=w1920-h924-rw' alt='' />
-            <img className={style.avatar} src={profile[0].image} alt={''} />
+            <img className={style.logo} src={logo} alt='' />
+            <NavLink className={style.NavLink} to={'/profile'} ><img className={style.avatar} src={profile[0].image} alt={''}  /></NavLink>
             <TitleHeader />
         </header>
     )

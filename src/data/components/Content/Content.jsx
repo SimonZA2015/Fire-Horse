@@ -8,16 +8,15 @@ import News from "./Views/News/News";
 
 import style from './Content.module.css';
 
-
 const Content = (props) => {
 
     return (
         <div className={style.body}>
-            <Route path='/profile' component={Profile} />
-            <Route path='/dialogs' component={Dialogs} />
-            <Route path='/sittings' component={Sittings} />
-            <Route path='/audio' component={Music} />
-            <Route path='/news' component={News} />
+            <Route path='/profile' render={() => <Profile profileInfo={props.profileInfo} />} />
+            <Route path='/dialogs' render={() => <Dialogs messagesList={props.messagesList} profileInfo={props.profileInfo} />} />
+            <Route path='/sittings' render={Sittings} />
+            <Route path='/audio' render={Music} />
+            <Route path='/news' render={News} />
         </div>
     )
 }

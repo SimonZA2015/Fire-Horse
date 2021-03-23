@@ -5,13 +5,13 @@ import Navbar from "./data/components/Navbar/Navbar";
 
 import './App.css';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <Header />
-      <Navbar />
-      <Content />
-    </div>
+      <div className="App">
+          <Header />
+          <Navbar />
+          <Content messagesList={props.messagesList} profileInfo={props.profileInfo} />
+      </div>
   );
 }
 

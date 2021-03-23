@@ -14,6 +14,9 @@
     border: none;
     border-inline: none;
     border-radius: 10px;
+    outline: none;
+    padding: 0 0 0 5px;
+
 }
 
 .input {
