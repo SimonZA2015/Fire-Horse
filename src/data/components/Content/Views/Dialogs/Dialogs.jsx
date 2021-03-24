@@ -13,6 +13,7 @@ const Dialogs = ({props}) => {
         }
         return url
     }
+
     const [id, setId] = useState(update);
 
     debugger
@@ -20,7 +21,7 @@ const Dialogs = ({props}) => {
     return (
         <div className={style.body} >
             <ListDialogs profileInfo={props.profileInfo} messagesList={props.messagesList} setId={() => setId(update)} />
-            <ListChat profileInfo={props.profileInfo} messagesList={props.messagesList} id={id} />
+            <ListChat profileInfo={props.profileInfo} messagesList={props.messagesList} id={id} idUsr={props.idUser} />
         </div>
     )
 }

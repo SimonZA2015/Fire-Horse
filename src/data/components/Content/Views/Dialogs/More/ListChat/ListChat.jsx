@@ -11,7 +11,7 @@ const ListChat = (props) => {
 
     let mesList = props.messagesList;
     let profile = props.profileInfo;
-    let listItemsChat = mesList[props.id].messages.map((data) => (<ItemsChat admin={props.id} ot={data.ot} image={profile[data.ot].image} text={data.text} />))
+    let listItemsChat = mesList[props.id].messages.map((data) => (<ItemsChat admin={props.idUsr} ot={data.ot} image={profile[data.ot].image} text={data.text} />))
 
     return (
         <div className={style.body} >

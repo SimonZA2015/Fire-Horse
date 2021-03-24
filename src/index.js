@@ -8,7 +8,7 @@ import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
         <BrowserRouter>
-            <App id={0} profileInfo={state.profile} messagesList={state.messages[0]}/>
+            <App id={0} profileInfo={state.profile} messagesList={state.messages[0]} idUser={0}/>
         </BrowserRouter>,
     document.getElementById('root')
 );

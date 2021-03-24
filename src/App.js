@@ -11,7 +11,7 @@ function App(props) {
       <div className="App">
           <Header props={props} />
           <Navbar props={props}/>
-          <Content messagesList={props.messagesList} profileInfo={props.profileInfo} />
+          <Content props={props} />
       </div>
   );
 }
