@@ -15,7 +15,7 @@ const ListDialogs = (props) => {
     return (
         <div className={style.body} >
             {mesList.map((data) => {
-                let temp = <ItemDialog onClick={(ide) => props.setId(ide)} id={i} name={data.name} image={profileInfo[data.id].image} />
+                let temp = <ItemDialog onClick={props.setId} id={i} name={data.name} image={profileInfo[data.id].image} />
                 i++
 
                 if (i === mesList.length) {

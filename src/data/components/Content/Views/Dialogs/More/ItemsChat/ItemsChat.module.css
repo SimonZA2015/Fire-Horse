@@ -1,18 +1,44 @@
 .body {
-    height: 30px;
     display: grid;
-    grid-template-columns: 0 100%;
+    grid-template-columns: 0 100% 0;
     padding: 5px;
+    margin-right: 7vh;
 }
-
 .body img {
     width: 100%;
     height: 100%;
     border-radius: 100%;
 }
+.body text {
+    padding-left: 5px;
+    background-color: #ffffff;
+    border-radius: 50px;
+}
+
+.bodyRight {
+    display: grid;
+    grid-template-columns: 0 100% 0;
+    padding: 5px;
+    text-align: right;
+    margin-left: 7vh;
+}
+.bodyRight img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+.bodyRight text {
+    padding-right: 5px;
+    background-color: #f3f2f2;
+    border-radius: 50px;
+}
 
 @media (min-width: 650px) {
     .body {
-        grid-template-columns: 5% 95%;
+        grid-template-columns: 5% 95% 0;
+    }
+    .bodyRight {
+        grid-template-columns: 0 95% 5%;
+        text-align: right;
     }
 }

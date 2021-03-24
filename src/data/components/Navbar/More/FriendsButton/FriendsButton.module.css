@@ -1,0 +1,51 @@
+.nav {
+    text-decoration: none;
+}
+.nav.active {
+    text-decoration: underline;
+}
+
+.body {
+    height: 3vh;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #eaeaea;
+    margin-top: 5px;
+    text-align: center;
+}
+.blockText {
+    color: dimgray;
+    text-decoration: initial;
+}
+.blockText.active {
+    text-decoration: inherit;
+}
+
+.blockAvatars {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+}
+
+.avatarFriend {
+    height: 60%;
+    width: 20%;
+}
+.avatarFriend img {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+@media (min-width: 800px) {
+    .body {
+        height: 7vh;
+    }
+    .blockAvatars {
+        visibility: visible;
+    }
+}

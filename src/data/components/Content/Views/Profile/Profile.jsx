@@ -5,20 +5,19 @@ import ProfileInfo from "./More/ProfileInfo";
 import ProfilePosts from "./More/ProfilePosts";
 
 import style from "./Profile.module.css";
-import {profile} from "../../../../base/info";
 
-const Profile = (props) => {
+const Profile = ({props}) => {
 
-    let id = 0
-    if (props.id === 'undefined') {
-        id = props.id;
+    let id = parseInt((window.location.pathname).split('/')[2]);
+    if (isNaN(id)) {
+        id = 0
     }
-
+    debugger
     return (
         <div className={style.body}>
-            <Banner image={profile[id].banner} />
-            <ProfileInfo name={profile[id].name} city={profile[id].city} avatar={profile[id].image} age={profile[id].age} />
-            <ProfilePosts id={id}/>
+            <Banner image={props.profileInfo[id].banner} />
+            <ProfileInfo name={props.profileInfo[id].name} city={props.profileInfo[id].city} avatar={props.profileInfo[id].image} age={props.profileInfo[id].age} />
+            <ProfilePosts id={id} profileInfo={props.profileInfo}/>
         </div>
     )
 }

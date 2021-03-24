@@ -6,10 +6,11 @@ import Navbar from "./data/components/Navbar/Navbar";
 import './App.css';
 
 function App(props) {
+
   return (
       <div className="App">
-          <Header />
-          <Navbar />
+          <Header props={props} />
+          <Navbar props={props}/>
           <Content messagesList={props.messagesList} profileInfo={props.profileInfo} />
       </div>
   );
