@@ -11,13 +11,14 @@ const ListChat = (props) => {
 
     let mesList = props.messagesList;
     let profile = props.profileInfo;
+    let listItemsChat = mesList[props.id].messages.map((data) => (<ItemsChat admin={props.idUsr} ot={data.ot} image={profile[data.ot].image} text={data.text} />))
 
     return (
         <div className={style.body} >
             <div className={style.list}>
-                {mesList[props.id].messages.map((data) => (<ItemsChat image={profile[data.ot].image} text={data.text} />))}
+                {listItemsChat}
             </div>
-            <InputChat id={props.id} getText={(data) => mesList[props.id].messages.push(data)}/>
+            <InputChat send={props.send} iam={props.idUsr} id={props.id} getText={(data) => mesList[props.id].messages.push(data)}/>
         </div>
     )
 }
