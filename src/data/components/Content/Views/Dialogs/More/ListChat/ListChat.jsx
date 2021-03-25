@@ -18,7 +18,7 @@ const ListChat = (props) => {
             <div className={style.list}>
                 {listItemsChat}
             </div>
-            <InputChat id={props.id} getText={(data) => mesList[props.id].messages.push(data)}/>
+            <InputChat send={props.send} iam={props.idUsr} id={props.id} getText={(data) => mesList[props.id].messages.push(data)}/>
         </div>
     )
 }

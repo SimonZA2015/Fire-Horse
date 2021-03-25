@@ -5,7 +5,6 @@ import ListDialogs from "./More/ListDialogs/ListDialogs";
 import ListChat from "./More/ListChat/ListChat";
 
 const Dialogs = ({props}) => {
-
     function update() {
         let url = parseInt((window.location.pathname).split('/')[2]);
         if (isNaN(url)) {
@@ -16,12 +15,10 @@ const Dialogs = ({props}) => {
 
     const [id, setId] = useState(update);
 
-    debugger
-
     return (
         <div className={style.body} >
             <ListDialogs profileInfo={props.profileInfo} messagesList={props.messagesList} setId={() => setId(update)} />
-            <ListChat profileInfo={props.profileInfo} messagesList={props.messagesList} id={id} idUsr={props.idUser} />
+            <ListChat send={props.addMessages} profileInfo={props.profileInfo} messagesList={props.messagesList} id={id} idUsr={props.idUser} />
         </div>
     )
 }

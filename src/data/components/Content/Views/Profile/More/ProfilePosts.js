@@ -7,7 +7,7 @@ const ProfilePosts = (props) => {
     return (
         <div>
             {/* eslint-disable-next-line react/jsx-pascal-case */}
-            <AddPost_Block id={props.id} />
+            <AddPost_Block editPostText={props.editPostText} newPostText={props.profileInfo[props.id].postEdit} addPost={props.addPost} iam={props.iam} id={props.id} />
             {props.profileInfo[props.id].posts.map((data) => (<ItemPost likes={data.likes.length} text={data.text} avatar={props.profileInfo[data.user].image} />))}
         </div>
     )

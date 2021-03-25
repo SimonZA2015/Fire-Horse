@@ -12,12 +12,12 @@ const Profile = ({props}) => {
     if (isNaN(id)) {
         id = 0
     }
-    debugger
+
     return (
         <div className={style.body}>
             <Banner image={props.profileInfo[id].banner} />
             <ProfileInfo name={props.profileInfo[id].name} city={props.profileInfo[id].city} avatar={props.profileInfo[id].image} age={props.profileInfo[id].age} />
-            <ProfilePosts id={id} profileInfo={props.profileInfo}/>
+            <ProfilePosts editPostText={props.editPostText} iam={props.idUser} addPost={props.addPost} id={id} profileInfo={props.profileInfo}/>
         </div>
     )
 }
