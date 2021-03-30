@@ -4,7 +4,7 @@ import style from './ItemsChat.module.css';
 
 const ItemsChat = (props) => {
     let styleId = style.body;
-    if (props.ot === props.admin.toString()) {
+    if (props.ot.toString() === props.admin.toString()) {
         styleId = style.bodyRight;
     }
 

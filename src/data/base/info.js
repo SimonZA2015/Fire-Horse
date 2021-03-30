@@ -1,18 +1,17 @@
-import Render from "../../render";
-
-const state = {
-    profile: [
+let store = {
+    _render: () => {},
+    _profile: [
         {
             image: 'https://lh3.googleusercontent.com/pw/ACtC-3c5_klG9Jc_ipQP89e-KBgqd6NBWh4CxWS8yoglUE9o6JLl4Qh3f8NeBlriMmsvt5vFV2YvG32IeeerX6gdZ4jVWMymyXcgCODiu-NOTcqXTRWWpWH986eKCB2xet-QO5BsnvtxcvYJtf2G0Du89YBbmQ=w740-h924-no?authuser=0',
             name: 'Лейпциг',
             city: 'Воронеж',
-            banner: 'https://lh3.googleusercontent.com/s_EVPTSbEF-QtqGXDf5CHJgEKViU8EBE4JM8jAMCXVjqG3651ff8Z82o-0weMCzeAYpSatfmMjLWeh4rC4MbWUI4Wk9tJfxVHfALQ8fEyHdg4PbHSK_3CJLDThfHunO2dqJ6pV1irHy6LC2QQLSZcIP88ASgcfXXpAUQcQbQvs6Oihxo54WVDM-XSl0o9vVqTccbZhoMKcOEgujdRtQ9MgiGLHL7GtWg29kAHLAT1ItgurwGLIyBye7IpaxJVHCepMax8xhUqbR7NX_ha7Z8hGvbfmVqQXgE6CASwYLTg9CurKu9uVg70vBokMLwIC6mE8zC6sI3Io2C43KNOsxuxIgJyVEZzgVRttHLqwOfc-G4C6fzyjpm5jfRsIkmY4FyfQFolXMdtaL4UKkw_foP9hhQ8EIQCWInMhC8s-q4i5HtnInt2a5mVBXGjGX5irpx6vo227dGCVBSFXgVtOXWZE_Bs08tXRl-RSgY1LsHuXyx5bcSNPJe58_fErqeTgvUXVr1Qh2TyB23jbawrQzyyDFde8CEwr-y9yoE6byg9GsDMEgMDRXNbwqTdHJykZ6T-zAUIF45_68PoBSbpgh4fKjHmeEJG488e7VARIre9pDbrjq337aFHMqBZgihHT9e3828yrsHujd6PTp0sj9LcOpYD5ON2X6U_ds_jj_vUz5hD9fDHCF3EyqcSdORlAtJ6ONydgRDJo7KC9Nthv-TzwCk=w695-h924-no?authuser=0',
-            friends: [1,2],
+            banner: 'https://lh3.googleusercontent.com/pw/ACtC-3edWXjRuYD34Uak6YpY7JXqMUEeFQrGHfutOgi_Ky7m65BYyGMAAEBo3Nzum_si5hVkGYAJmmgwTTVdm-uoweRSw99usZ4llq5Jy0QNCzEck4lD6FJI1z8U3WvLxGs-EpRU9lbMBIWy8lH_w-bneQNGxA=w1404-h425-no?authuser=0',
+            friends: [1, 2],
             postEdit: ['я провел норм день',],
             posts: [
                 {
                     text: 'Сегодня был в полях, было оченб классно!',
-                    likes: [0,2,5],
+                    likes: [0, 2, 5],
                     user: 0
                 },
                 {
@@ -25,6 +24,7 @@ const state = {
         {
             image: 'https://lh3.googleusercontent.com/pw/ACtC-3fA-5Rv-7qZMrRjTqe9yi35C98TalnUOnIL5qTevnHDkRhB4JxqXlnVWwFIK0jbq9gFvYGRrih7FFM1tGo1JwYNbUZomchVvjQLsVLH-u3Owxsz3aZNnAfxgWWxbEtL0lstKyTpXYdpEzKfPT5LeKLPjA=w695-h924-no?authuser=0',
             name: 'Боня',
+            banner: 'https://lh3.googleusercontent.com/pw/ACtC-3dXQaju4hPP9rL2QCH97fa-qJr8jZm9c7WO6ulwuu39d3HosKM5NsJjv2MsaEcc7yIkIwK9uLw697KDBWPwNpgJlYgLMv2SOqqM1oZNC_7yz3sPaFWNM4QnqhSDvq2frWUsWbE98qqhKcHR8ypLJcSkBg=s828-no?authuser=0',
             city: 'Москва',
             postEdit: [],
             posts: [
@@ -54,79 +54,88 @@ const state = {
             ]
         }
     ],
-
-
-    dialog: [[
-    {
-        name: 'Боня',
-        id: '1',
-        messages: [
-            {
-                ot: '0',
-                text: 'Привет!',
-            },
-            {
-                ot: '1',
-                text: 'Хорошо, ты как',
-            }
-        ]
+    getProfile(id) {
+        return this._profile[id];
     },
-    {
-        name: 'Агрегор',
-        id: '2',
-        messages: [
-            {
-                ot: '2',
-                text: 'Привет, что делаешь?',
-            },
-            {
-                ot: '0',
-                text: 'Хорошо, на тренинге',
-            }
-        ]
+    getProfiles() {
+        return this._profile;
     },
-],
-[]
-]};
-
-window.state = state;
-
-export const addPost = (props) => {
-
-    try {
+    addPost(props) {
         let newPost = {
             text: props.text,
             likes: [],
             user: props.user,
         };
+        debugger
 
-        state.profile[props.komu].posts.push(newPost);
-        state.profile[props.komu].postEdit = '';
+        this._profile[props.komu].posts.push(newPost);
+        this._profile[props.komu].postEdit[props.user] = '';
 
-        Render(state)
-        return true
+        this.render();
+    },
+    editPostText(props) {
+        this._profile[props.id].postEdit[props.iam] = props.text;
 
-    }catch (e) {
-        return false
+        this.render();
+    },
 
+    _dialog: [[
+        {
+            name: 'Боня',
+            id: '1',
+            messages: [
+                {
+                    ot: '0',
+                    text: 'Привет!',
+                },
+                {
+                    ot: '1',
+                    text: 'Хорошо, ты как',
+                }
+            ]
+        },
+        {
+            name: 'Агрегор',
+            id: '2',
+            messages: [
+                {
+                    ot: '2',
+                    text: 'Привет, что делаешь?',
+                },
+                {
+                    ot: '0',
+                    text: 'Хорошо, на тренинге',
+                }
+            ]
+        },
+    ],
+        []
+    ],
+    getMessages(id) {
+        return this._dialog[id]
+    },
+    addMessagesItem(props) {
+        let messagesData = {
+            ot: props.ot,
+            text: props.text,
+        }
+
+        this._dialog[props.ot][props.komu].messages.push(messagesData)
+        this.render();
+    },
+
+    subscribe(observer) {
+        this._render = observer;
+        observer()
+    },
+
+    render() {
+        this._render()
     }
-}
 
-export const addMessagesItem = (props) => {
+};
 
-    let messagesData = {
-        ot: props.ot,
-        text: props.text,
-    }
-    state.dialog[props.ot][props.komu].messages.push(messagesData)
-    Render(state);
-}
-
-export const editPostText = (props) => {
-    state.profile[props.id].postEdit[props.iam] = props.text
-
-    Render(state)
-}
+window.store = store;
 
 
-export default state;
+export default store;

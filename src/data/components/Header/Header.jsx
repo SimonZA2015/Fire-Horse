@@ -10,7 +10,7 @@ const Header = ({props}) => {
     return (
         <header className={style.body} >
             <img className={style.logo} src={logo} alt='' />
-            <NavLink className={style.NavLink} to={'/profile'} ><img className={style.avatar} src={props.profileInfo[0].image} alt={''}  /></NavLink>
+            <NavLink className={style.NavLink} to={'/profile'} ><img className={style.avatar} src={props.profileInfo[props.idUser].image} alt={''}  /></NavLink>
             <TitleHeader />
         </header>
     )
