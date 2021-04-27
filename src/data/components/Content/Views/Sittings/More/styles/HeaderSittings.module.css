@@ -1,8 +1,0 @@
-.body {
-    height: 30px;
-    background-color: #eaeaea;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: calc(100%/3) calc(100%/3) calc(100%/3);
-    text-align: center;
-}

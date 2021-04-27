@@ -12,7 +12,6 @@ const ListDialogs = (props) => {
     let profileInfo = props.profileInfo;
     let i = 0;
     let listDialogs = false;
-    debugger
     if (mesList.length > 0) {
         listDialogs = mesList.map((data) => {
             let temp = <ItemDialog onClick={props.setId} id={i} name={data.name} image={profileInfo[data.id].image} />

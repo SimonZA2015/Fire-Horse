@@ -1,0 +1,21 @@
+.body {
+    text-align: center;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 15vh 85%;
+    background: #f3f2f2;
+    border-radius: 0 0 10px 10px;
+}
+
+h4 {
+    padding: 0;
+    margin: 0;
+}
+
+.avatar {
+    height: 15vh;
+    background-position: center;
+    background-size: cover;
+    border-radius: 100%;
+
+}

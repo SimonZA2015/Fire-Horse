@@ -12,7 +12,7 @@ const render = () => {
 
     ReactDOM.render(
         <BrowserRouter>
-            <App editPostText={store.editPostText.bind(store)} addMessages={store.addMessagesItem.bind(store)} addPost={store.addPost.bind(store)} id={login} profileInfo={store.getProfiles()} messagesList={store.getMessages(login)} idUser={login}/>
+            <App editPostText={store.editPostText.bind(store)} addMessages={store.addMessagesItem.bind(store)} addPost={store.addPost.bind(store)} setAge={store.setAge.bind(store)} id={login} profileInfo={store.getProfiles()} messagesList={store.getMessages(login)} idUser={login}/>
         </BrowserRouter>,
         document.getElementById('root')
     )

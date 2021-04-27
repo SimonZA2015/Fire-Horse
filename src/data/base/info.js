@@ -3,7 +3,7 @@ let store = {
     _profile: [
         {
             image: 'https://lh3.googleusercontent.com/pw/ACtC-3c5_klG9Jc_ipQP89e-KBgqd6NBWh4CxWS8yoglUE9o6JLl4Qh3f8NeBlriMmsvt5vFV2YvG32IeeerX6gdZ4jVWMymyXcgCODiu-NOTcqXTRWWpWH986eKCB2xet-QO5BsnvtxcvYJtf2G0Du89YBbmQ=w740-h924-no?authuser=0',
-            name: 'Лейпциг',
+            name: 'Магнум',
             city: 'Воронеж',
             banner: 'https://lh3.googleusercontent.com/pw/ACtC-3edWXjRuYD34Uak6YpY7JXqMUEeFQrGHfutOgi_Ky7m65BYyGMAAEBo3Nzum_si5hVkGYAJmmgwTTVdm-uoweRSw99usZ4llq5Jy0QNCzEck4lD6FJI1z8U3WvLxGs-EpRU9lbMBIWy8lH_w-bneQNGxA=w1404-h425-no?authuser=0',
             friends: [1, 2],
@@ -26,6 +26,7 @@ let store = {
             name: 'Боня',
             banner: 'https://lh3.googleusercontent.com/pw/ACtC-3dXQaju4hPP9rL2QCH97fa-qJr8jZm9c7WO6ulwuu39d3HosKM5NsJjv2MsaEcc7yIkIwK9uLw697KDBWPwNpgJlYgLMv2SOqqM1oZNC_7yz3sPaFWNM4QnqhSDvq2frWUsWbE98qqhKcHR8ypLJcSkBg=s828-no?authuser=0',
             city: 'Москва',
+            friends: [],
             postEdit: [],
             posts: [
                 {
@@ -39,6 +40,7 @@ let store = {
             image: 'https://lh3.googleusercontent.com/pw/ACtC-3cQjntN15cR7ezvASABTqmmG8WKcBLaeWDBktyXgSuEP4IBxqk9FMy1XwF2lT16m8kdQKEWzTMxNjCjEqN0uSjsh-cJdd34QT77dxLHM_WdBsKVb45BiKvZ8nd1AkE_3cZe6AtC9gZFuXQNk69xbjfn0Q=w521-h924-no?authuser=0',
             name: 'Эгрегор',
             city: 'Москва',
+            friends: [],
             postEdit: [],
             posts: [
                 {
@@ -131,6 +133,10 @@ let store = {
 
     render() {
         this._render()
+    },
+
+    setAge(id, int) {
+        this._profile[id].age = int;
     }
 
 };
