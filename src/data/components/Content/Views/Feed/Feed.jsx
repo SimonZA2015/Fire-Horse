@@ -5,7 +5,7 @@ const Feed = ({props}) => {
 
     return(
         <div>
-            <ListFeed profileInfo={props.profileInfo} />
+            <ListFeed likePost={props.likePost} id={props.id} profileInfo={props.profileInfo} />
         </div>
     )
 }

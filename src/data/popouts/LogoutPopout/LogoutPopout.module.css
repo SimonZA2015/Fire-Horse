@@ -1,0 +1,44 @@
+.bg {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,50%);
+}
+
+.body {;
+    width: 100%;
+    right: 0;
+    padding: 5px;
+    left: 0;
+    bottom: 0;
+    background: aliceblue;
+    position: absolute;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.body h4 {
+    width: 99%;
+    background: aqua;
+    border-radius: 10px;
+}
+
+.inputs {
+    width: 90%;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 2px;
+}
+
+@media (min-width: 700px) {
+    .body {
+        width: 20%;
+        bottom: 0;
+        right: 40%;
+        left: 40%;
+    }
+}

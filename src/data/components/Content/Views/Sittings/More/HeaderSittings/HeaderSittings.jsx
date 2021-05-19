@@ -1,7 +1,7 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 import style from './HeaderSittings.module.css';
-import {NavLink} from "react-router-dom";
 
 const HeaderSittings = () => {
 

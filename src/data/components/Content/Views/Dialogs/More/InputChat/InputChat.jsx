@@ -18,8 +18,8 @@ const InputChat = (props) => {
 
     return (
         <div className={style.body} >
-            <div><input ref={textInputChat} className={style.input} placeholder='Напишите что-то' /></div>
-            <img onClick={sendMessage} src={'https://cdn0.iconfinder.com/data/icons/instagram-ui-1/24/Instagram-UI_send-512.png'} alt='' />
+            <input ref={textInputChat} className={style.input} placeholder='Напишите что-то' />
+            <img onClick={sendMessage} src={'https://cdn0.iconfinder.com/data/icons/instagram-ui-1/24/Instagram-UI_send-512.png'} alt='send' />
         </div>
     )
 }

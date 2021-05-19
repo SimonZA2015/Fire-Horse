@@ -18,14 +18,49 @@ const InfoBanner = (props) => {
         debugger
     }
 
-    const inputAge = createRef()
+    const inputAge = createRef();
+    const inputName = createRef();
+    const inputCity = createRef();
+
     return (
         <div className={style.body}>
             <div className={style.avatar} style={{backgroundImage: 'url(' + props.avatar + ')'}}/>
             <div>
-                {editName ? <div><input placeholder={'Имя'}/><span onClick={() => setEditName(false)}>{'✔️'}</span></div> : <div style={{ display: 'flex'}}><h4>{infoName}</h4><span onClick={() => setEditName(true)}>{'✏️'}</span></div>}
-                {editCity ? <div><input placeholder={'Город'}/><span onClick={() => setEditCity(false)}>{'✔️'}</span></div> : <div><span>{infoCity}</span><span onClick={() => setEditCity(true)}>{'✏️'}</span></div>}
-                {editAge ? <div><input placeholder={'Возраст'} ref={inputAge} /><span onClick={() => {setEditAge(false); props.setAge(props.id, inputAge.current.value); updateInfo()}}>{'✔️'}</span></div> : <div><span>{infoAge ? infoAge + ' year' : 'Возраст не указан'}</span><span onClick={() => setEditAge (true)}>{'✏️'}</span></div>}
+                {editName ? <div>
+                    <input placeholder={'Имя'} ref={inputName} />
+                    <span
+                        onClick={() => {
+                            setEditName(false);
+                            props.setName(props.id, inputName.current.value);
+                            }}>{'✔️'}
+                    </span>
+                </div> : <div style={{ display: 'flex'}}>
+                    <h4>{infoName}</h4>
+                    <span onClick={() => setEditName(true)}>{'✏️'}</span>
+                </div>}
+                {editCity ? <div>
+                    <input placeholder={'Город'} ref={inputCity} />
+                    <span onClick={() => {
+                        setEditCity(false);
+                        props.setCity(props.id, inputCity.current.value);
+                        updateInfo()
+                    }}>{'✔️'}
+                    </span>
+                </div> : <div>
+                    <span>{infoCity}</span>
+                    <span onClick={() => setEditCity(true)}>{'✏️'}</span>
+                </div>}
+                {editAge ? <div>
+                    <input placeholder={'Возраст'} ref={inputAge} />
+                    <span onClick={() => {
+                        setEditAge(false);
+                        props.setAge(props.id, inputAge.current.value);
+                        updateInfo()}}>{'✔️'}
+                    </span>
+                </div> : <div>
+                    <span>{infoAge ? infoAge + ' year' : 'Возраст не указан'}</span>
+                    <span onClick={() => setEditAge (true)}>{'✏️'}</span>
+                </div>}
             </div>
         </div>
     )

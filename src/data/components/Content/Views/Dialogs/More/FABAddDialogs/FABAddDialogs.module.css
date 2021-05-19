@@ -1,5 +1,6 @@
 .body {
-    width: 13%;
+    width: 50px;
+    height: 50px;
     background-color: dimgray;
     border-radius: 100%;
     position: absolute;

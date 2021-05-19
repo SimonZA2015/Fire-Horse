@@ -8,8 +8,17 @@ const Sittings = ({props}) => {
     return (
         <div>
             <HeaderSittings />
-            <Route path={'/sittings/account'} ><AccauntView id={props.id} setAge={props.setAge} info={props.profileInfo[props.id]} /></Route>
-            <Route path={'sittings/privacy'} ></Route>
+            <Route path={'/sittings/account'} >
+                <AccauntView
+                    id={props.id}
+                    setName={props.setName}
+                    setAge={props.setAge}
+                    setCity={props.setCity}
+                    info={props.profileInfo[props.id]}
+                    logOut={props.logOut}
+                />
+            </Route>
+            <Route path={'/sittings/privacy'} ></Route>
         </div>
     )
 }

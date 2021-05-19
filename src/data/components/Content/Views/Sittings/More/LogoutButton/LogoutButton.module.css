@@ -1,0 +1,7 @@
+.body {
+    height: 5vh;
+    background: crimson;
+    text-align: center;
+    margin: 5px;
+    border-radius: 10px;
+}
