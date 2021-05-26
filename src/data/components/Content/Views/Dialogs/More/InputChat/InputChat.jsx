@@ -4,7 +4,7 @@ import style from './InputChat.module.css';
 
 const InputChat = (props) => {
     let textInputChat = React.createRef();
-
+    debugger
     const sendMessage = () => {
         let messagesData = {
             ot: props.iam,
