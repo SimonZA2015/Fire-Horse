@@ -3,10 +3,9 @@ import Content from "./data/components/Content/Content";
 import Header from "./data/components/Header/Header";
 import Navbar from "./data/components/Navbar/Navbar";
 import BottomNavbar from "./data/components/BottomNavbar/BottomNavbar";
+import LogoutPopout from "./data/popouts/LogoutPopout/LogoutPopout";
 
 import './App.css';
-import {Route} from "react-router-dom";
-import LogoutPopout from "./data/popouts/LogoutPopout/LogoutPopout";
 
 function App(props) {
 
