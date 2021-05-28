@@ -10,14 +10,28 @@ const Profile = ({props}) => {
 
     let id = parseInt((window.location.pathname).split('/')[2]);
     if (isNaN(id)) {
-        id = props.idUser
+        id = props.dispatch({type: 'GET-LOGIN'});
     }
+
+    const profileData = props.dispatch({type: 'GET-PROFILE', id: id})
 
     return (
         <div className={style.body}>
-            <Banner image={props.profileInfo[id].banner} />
-            <ProfileInfo iam={props.idUser} id={id} name={props.profileInfo[id].name} city={props.profileInfo[id].city} avatar={props.profileInfo[id].image} age={props.profileInfo[id].age} />
-            <ProfilePosts editPostText={props.editPostText} iam={props.idUser} addPost={props.addPost} id={id} profileInfo={props.profileInfo}/>
+            <Banner image={profileData.banner} />
+            <ProfileInfo
+                name={profileData.name}
+                city={profileData.city}
+                avatar={profileData.image}
+                age={profileData.age}
+                id={id}
+                iam={props.dispatch({type: 'GET-LOGIN'})}
+            />
+            <ProfilePosts
+                iam={props.dispatch({type: 'GET-LOGIN'})}
+                addPost={(data) => props.dispatch({type: 'ADD-POST', data: data})}
+                id={id}
+                profileInfo={props.dispatch({type: 'GET-PROFILES'})}
+            />
         </div>
     )
 }

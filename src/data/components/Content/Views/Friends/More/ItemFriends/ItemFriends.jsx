@@ -6,7 +6,7 @@ import style from './ItemFriends.module.css';
 const ItemFriends = (props) => {
 
     return (
-        <NavLink className={style.nav} to={'profile/' + props.id}>
+        <NavLink className={style.nav} to={'/profile/' + props.id + '/'}>
             <div className={style.body}>
                 <div className={style.avatar}>
                     <img src={props.avatar}

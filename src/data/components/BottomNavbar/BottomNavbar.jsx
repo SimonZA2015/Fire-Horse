@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 import style from './BottomNavbar.module.css';
 
-const BottomNavbar = ({props}) => {
+const BottomNavbar = ({props , menu, setMenu}) => {
 
     const [messageCreate, setMessageCreate] = useState(false)
 
@@ -30,12 +30,11 @@ const BottomNavbar = ({props}) => {
                     alt={'messages'}
                 />
             </NavLink>}
-            <NavLink to={'/sittings/'} >
                 <img
+                    onClick={() => setMenu(true)}
                     src={'https://icons-for-free.com/iconfiles/png/512/home+list+menu+menusettings+navigation+settings+icon-1320185736012370078.png'}
                     alt={'sittings'}
                 />
-            </NavLink>
         </div>
     )
 };

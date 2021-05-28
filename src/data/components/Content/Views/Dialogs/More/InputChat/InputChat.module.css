@@ -26,3 +26,10 @@
 .input {
 
 }
+
+@media (max-width: 750px) {
+    .body {
+        position: absolute;
+        bottom: 6vh;
+    }
+}

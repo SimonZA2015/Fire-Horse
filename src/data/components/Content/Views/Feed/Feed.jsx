@@ -5,7 +5,11 @@ const Feed = ({props}) => {
 
     return(
         <div>
-            <ListFeed likePost={props.likePost} id={props.id} profileInfo={props.profileInfo} />
+            <ListFeed
+                likePost={(data) => props.dispatch({type: 'LIKE-POST', data: data})}
+                id={props.dispatch({type: 'GET-LOGIN'})}
+                profileInfo={props.dispatch({type: 'GET-PROFILES'})}
+            />
         </div>
     )
 }

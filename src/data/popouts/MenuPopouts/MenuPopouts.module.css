@@ -1,0 +1,34 @@
+.bg {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(260deg, rgba(0,0,0, 1) 0%, rgba(1,0,19,0.5331174706210609) 50%, rgba(0,0,0,0) 100%);
+
+}
+
+.close {
+
+}
+
+.body {
+    height: 100vh;
+    background: white;
+    border-radius: 10px 0 0 10px;
+    animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+
+
+@keyframes slide-left {
+    0% {
+        transform: translateX(70vw);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}

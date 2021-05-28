@@ -1,0 +1,10 @@
+.body {
+}
+
+.body img {
+    object-fit: cover;
+    border-radius: 100vh;
+    position: relative;
+    width: 15vh;
+    height: 15vh
+}

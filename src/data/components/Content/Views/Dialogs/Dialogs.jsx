@@ -5,6 +5,10 @@ import ListDialogs from "./More/ListDialogs/ListDialogs";
 import ListChat from "./More/ListChat/ListChat";
 
 const Dialogs = ({props}) => {
+
+    const messagesList = props.dispatch({type: 'GET-MESSAGES'});
+    const profileInfo = props.dispatch({type: 'GET-PROFILES'});
+
     function update() {
         let url = parseInt((window.location.pathname).split('/')[2]);
         if (isNaN(url)) {
@@ -17,8 +21,8 @@ const Dialogs = ({props}) => {
 
     return (
         <div className={style.body} >
-            <ListDialogs profileInfo={props.profileInfo} messagesList={props.messagesList} setId={() => setId(update)} />
-            <ListChat send={props.addMessages} profileInfo={props.profileInfo} messagesList={props.messagesList} id={id} idUsr={props.idUser} />
+            <ListDialogs profileInfo={profileInfo} messagesList={props.dispatch({type: 'GET-MESSAGES'})} setId={() => setId(update)} />
+            <ListChat send={(data) => props.dispatch({type: 'ADD-MESSAGEITEM', data: data})} profileInfo={profileInfo} messagesList={messagesList} id={id} idUsr={props.dispatch({type: 'GET-LOGIN'})} />
         </div>
     )
 }

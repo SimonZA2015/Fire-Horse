@@ -9,6 +9,7 @@ let store = {
             image: 'https://cdn.iconscout.com/icon/free/png-512/account-269-866236.png',
             name: 'Неизвестный',
             city: '',
+            age: '',
             banner: 'https://lh3.googleusercontent.com/pw/ACtC-3edWXjRuYD34Uak6YpY7JXqMUEeFQrGHfutOgi_Ky7m65BYyGMAAEBo3Nzum_si5hVkGYAJmmgwTTVdm-uoweRSw99usZ4llq5Jy0QNCzEck4lD6FJI1z8U3WvLxGs-EpRU9lbMBIWy8lH_w-bneQNGxA=w1404-h425-no?authuser=0',
             friends: [],
             postEdit: [],
@@ -41,7 +42,7 @@ let store = {
             banner: 'https://lh3.googleusercontent.com/pw/ACtC-3dXQaju4hPP9rL2QCH97fa-qJr8jZm9c7WO6ulwuu39d3HosKM5NsJjv2MsaEcc7yIkIwK9uLw697KDBWPwNpgJlYgLMv2SOqqM1oZNC_7yz3sPaFWNM4QnqhSDvq2frWUsWbE98qqhKcHR8ypLJcSkBg=s828-no?authuser=0',
             city: 'Москва',
             pass: 'Dii',
-            friends: [],
+            friends: [1],
             postEdit: [],
             posts: [
                 {
@@ -56,7 +57,7 @@ let store = {
             name: 'Эгрегор',
             city: 'Москва',
             pass: 'sasib',
-            friends: [],
+            friends: [1],
             postEdit: [],
             posts: [
                 {
@@ -72,127 +73,151 @@ let store = {
             ]
         }
     ],
-    getProfile(id) {
-        return this._profile[id];
-    },
-    getProfiles() {
-        return this._profile;
-    },
-    addPost(props) {
-        let newPost = {
-            text: props.text,
-            likes: [],
-            user: props.user,
-        };
-        debugger
 
-        this._profile[props.komu].posts.push(newPost);
-        this._profile[props.komu].postEdit[props.user] = '';
+    _dialog: {
+        ids: [],
+        list:[
+            [],
+            [
+            {
+                name: 'Боня',
+                id: '2',
+                messages: [
+                    {
+                        ot: '1',
+                        text: 'Привет!',
+                    },
+                    {
+                        ot: '2',
+                        text: 'Хорошо, ты как',
+                    }
+                ]
+            },
+            {
+                name: 'Агрегор',
+                id: '3',
+                friends: [1],
+                messages: [
+                    {
+                        ot: '3',
+                        text: 'Привет, что делаешь?',
+                    },
+                    {
+                        ot: '1',
+                        text: 'Хорошо, на тренинге',
+                    }
+                ]
+            },
+        ],
+            [],
+        ],
+    },
 
-        this.render();
-    },
-    editPostText(props) {
-        this._profile[props.id].postEdit[props.iam] = props.text;
+    dispatch(action) {
+        switch (action.type) {
+            case 'GET-MYPROFILE':
+                return this._profile[parseInt(this._loginId)];
 
-        this.render();
-    },
-    getLoginLogIn() {
-        return this._loginId;
-    },
-    setLoginLogIn(login, pass) {
-        try {
-            if (this._profile[login].pass === pass) {
-                this._loginId = login;
+            case 'GET-PROFILE':
+                return this._profile[parseInt(action.id)];
+
+            case 'GET-PROFILES':
+                return this._profile;
+
+            case 'EDIT-PROFILE-AGE':
+                this._profile[parseInt(this._loginId)].age = action.data;
                 this.render();
-            }
-        }catch {}
-    },
-    logoutLogin() {
-        this._loginId = 0;
-        this.render();
-    },
+                break
 
-    _dialog: [[],
-        [
-        {
-            name: 'Боня',
-            id: '2',
-            messages: [
-                {
-                    ot: '1',
-                    text: 'Привет!',
-                },
-                {
-                    ot: '2',
-                    text: 'Хорошо, ты как',
+            case 'EDIT-PROFILE-NAME':
+                if (action.data.length > 5)
+                    this._profile[parseInt(this._loginId)].name = action.data;
+
+                this.render();
+                break
+
+            case 'EDIT-PROFILE-CITY':
+                if (action.data.length > 2) {
+                    this._profile[parseInt(this._loginId)].city = action.data;
                 }
-            ]
-        },
-        {
-            name: 'Агрегор',
-            id: '3',
-            messages: [
-                {
-                    ot: '3',
-                    text: 'Привет, что делаешь?',
-                },
-                {
-                    ot: '1',
-                    text: 'Хорошо, на тренинге',
+                this.render();
+                break
+
+            case 'ADD-POST':
+                let newPost = {
+                    text: action.data.text,
+                    likes: [],
+                    user: action.data.user,
+                };
+                debugger
+                this._profile[action.data.komu].posts.push(newPost);
+                this._profile[action.data.komu].postEdit[action.data.user] = '';
+                this.render();
+                break
+
+            case 'EDIT-POST':
+                this._profile[action.id].postEdit[action.num] = action.data.text;
+                this.render();
+                break
+
+            case 'LIKE-POST':
+                debugger
+                if (action.data.idPost > -1 &&  this._profile[action.data.idAthor].posts[action.data.idPost].likes.includes(action.data.idUser)) {
+                    let index = this._profile[action.data.idAthor].posts[action.data.idPost].likes.indexOf(action.data.idUser);
+                    if (index > -1) {
+                        this._profile[action.data.idAthor].posts[action.data.idPost].likes.splice(index, 1);
+                    }
+                }else {
+                    this._profile[action.data.idAthor].posts[action.data.idPost].likes.push(action.data.idUser);
                 }
-            ]
-        },
-    ],
-        []
-    ],
-    getMessages(id) {
-        return this._dialog[id]
-    },
-    addMessagesItem(props) {
-        let messagesData = {
-            ot: props.ot,
-            text: props.text,
+                this.render();
+                break
+
+            case "GET-LOGIN":
+                return this._loginId;
+
+            case 'SETLOGIN-LOGIN':
+                try {
+                    if (this._profile[action.login].pass === action.pass) {
+                        this._loginId = action.login;
+                        this.render();
+                        return true
+                    }else {
+                        return false
+                    }
+                }catch {
+                    alert('Ошибка при входе')
+                    return false
+                }
+
+            case 'LOGOUT':
+                this._loginId = 0;
+                this.render();
+                break
+
+            case 'GET-MESSAGES':
+                return this._dialog.list[this._loginId];
+
+            case 'ADD-MESSAGEITEM':
+                let messagesData = {
+                    ot: action.data.ot,
+                    text: action.data.text,
+                }
+
+                this._dialog.list[action.data.ot][action.data.komu].messages.push(messagesData)
+                this.render();
+                break
+
+
+            default:
+                break
         }
 
-        this._dialog[props.ot][props.komu].messages.push(messagesData)
-        this.render();
-    },
 
-    setAgeProfile(id, int) {
-        this._profile[id].age = int;
-        this.render();
-    },
-
-    setNameProfile(id, name) {
-        if (name.length > 5)
-            this._profile[id].name = name;
-            this.render();
-    },
-
-    likePost(idPost, idAthor, idUser) {
-        debugger
-        if (idPost > -1 &&  this._profile[idAthor].posts[idPost].likes.includes(idUser)) {
-            let index = this._profile[idAthor].posts[idPost].likes.indexOf(idUser);
-            if (index > -1) {
-                this._profile[idAthor].posts[idPost].likes.splice(index, 1);
-            }
-        }else {
-            this._profile[idAthor].posts[idPost].likes.push(idUser);
-        }
-        this.render();
-    },
-
-    setCityProfile(id, city) {
-        
-        if (city.length > 2) {
-            this._profile[id].city = city;
-            this.render();
-
-        }
     },
 
     subscribe(observer) {
-        //привязываю обсервер, чтобы могла база обговлять экран
+        //привязываю обсервер, чтобы могла база обновлять экран
         this._render = observer;
         observer()
     },

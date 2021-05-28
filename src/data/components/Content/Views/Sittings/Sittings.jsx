@@ -11,11 +11,11 @@ const Sittings = ({props}) => {
             <Route path={'/sittings/account'} >
                 <AccauntView
                     id={props.id}
-                    setName={props.setName}
-                    setAge={props.setAge}
-                    setCity={props.setCity}
-                    info={props.profileInfo[props.id]}
-                    logOut={props.logOut}
+                    setName={(data) => props.dispatch({type: 'EDIT-PROFILE-NAME', data: data})}
+                    setAge={(data) => {alert(data); props.dispatch({type: 'EDIT-PROFILE-AGE', data: data})}}
+                    setCity={(data) => props.dispatch({type: 'EDIT-PROFILE-CITY', data: data})}
+                    info={props.dispatch({type: 'GET-MYPROFILE'})}
+                    logOut={() => props.dispatch({type: 'LOGOUT'})}
                 />
             </Route>
             <Route path={'/sittings/privacy'} ></Route>

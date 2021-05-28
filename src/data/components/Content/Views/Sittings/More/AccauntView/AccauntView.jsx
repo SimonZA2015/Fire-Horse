@@ -1,13 +1,13 @@
 import React from 'react';
-
-import style from './AccauntView.module.css';
 import InfoBanner from "./InfoBanner/InfoBanner";
 import LogoutButton from "../LogoutButton/LogoutButton";
+
+import style from './AccauntView.module.css';
 
 const AccauntView = (props) => {
 
     return (
-        <div className={style.body}>
+        <div>
             <InfoBanner
                 id={props.id}
                 setName={props.setName}
