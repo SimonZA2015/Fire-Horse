@@ -2,7 +2,7 @@ import React from 'react';
 import InfoBanner from "./InfoBanner/InfoBanner";
 import LogoutButton from "../LogoutButton/LogoutButton";
 
-import style from './AccauntView.module.css';
+// import style from './AccauntView.module.css';
 
 const AccauntView = (props) => {
 
