@@ -19,7 +19,7 @@ const Profile = ({props}) => {
 
     let id = parseInt((window.location.pathname).split('/')[2]);
     if (isNaN(id)) {
-        id = props.dispatch(GetLoginActionCreate);
+        id = props.dispatch(GetLoginActionCreate());
     }
 
     const profileData = props.dispatch(GetProfileActionCreate(id));
@@ -40,7 +40,7 @@ const Profile = ({props}) => {
             />
             <ProfilePosts
                 iam={iId}
-                addPost={(data) => props.dispatch(AddPostActionCreate)}
+                addPost={(data) => props.dispatch(AddPostActionCreate(data))}
                 id={id}
                 profileInfo={profilesData}
             />

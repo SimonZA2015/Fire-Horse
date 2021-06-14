@@ -15,7 +15,7 @@ const ListFeed = (props) => {
                         user={dataPost.user}
                         avatar={props.profileInfo[dataPost.user].image}
                         likes={dataPost.likes}
-                        onLike={() => props.likePost({idPost: data.posts.indexOf(dataPost), idUser: dataPost.user, idAthor:props.id})}
+                        onLike={() => props.likePost({idPost: data.posts.indexOf(dataPost), idUser: props.id, idAthor: dataPost.user})}
                     />
                 )))
             })}

@@ -17,7 +17,7 @@ const Feed = ({props}) => {
     return(
         <div>
             <ListFeed
-                likePost={(data) => props.dispatch(LikePostActionCreate())}
+                likePost={(data) => props.dispatch(LikePostActionCreate(data))}
                 id={props.dispatch(GetLoginActionCreate())}
                 profileInfo={props.dispatch(GetProfilesActioneCreate())}
             />
