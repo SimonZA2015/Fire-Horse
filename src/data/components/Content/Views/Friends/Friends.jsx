@@ -11,10 +11,10 @@ const GetLoginActionCreate = () => ({type: 'GET-LOGIN'});
 
 const Friends = ({props}) => {
 
-    const profileInfo = props.dispatch(GetProfilesActionCreate);
+    const profileInfo = props.dispatch(GetProfilesActionCreate());
     let id = parseInt((window.location.pathname).split('/')[2]);
     if (isNaN(id)) {
-        id = props.dispatch(GetLoginActionCreate);
+        id = props.dispatch(GetLoginActionCreate());
     }
 
     let friends = [];
