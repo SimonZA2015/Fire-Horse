@@ -57,6 +57,7 @@ let store = {
             name: 'Эгрегор',
             city: 'Москва',
             pass: 'sasib',
+            banner: '',
             friends: [1],
             postEdit: [],
             posts: [
@@ -116,20 +117,25 @@ let store = {
     dispatch(action) {
         switch (action.type) {
             case 'GET-MYPROFILE':
+                //send list info your profile
                 return this._profile[parseInt(this._loginId)];
 
             case 'GET-PROFILE':
+                //send list info witch index profile
                 return this._profile[parseInt(action.id)];
 
             case 'GET-PROFILES':
+                //send list info witch all profiles
                 return this._profile;
 
             case 'EDIT-PROFILE-AGE':
+                //set old profile
                 this._profile[parseInt(this._loginId)].age = action.data;
                 this.render();
                 break
 
             case 'EDIT-PROFILE-NAME':
+                //set name profile
                 if (action.data.length > 5)
                     this._profile[parseInt(this._loginId)].name = action.data;
 
@@ -137,6 +143,7 @@ let store = {
                 break
 
             case 'EDIT-PROFILE-CITY':
+                //set city profile
                 if (action.data.length > 2) {
                     this._profile[parseInt(this._loginId)].city = action.data;
                 }
@@ -144,12 +151,13 @@ let store = {
                 break
 
             case 'ADD-POST':
+                //func add post to feed and profile
                 let newPost = {
                     text: action.data.text,
                     likes: [],
                     user: action.data.user,
                 };
-                debugger
+
                 this._profile[action.data.komu].posts.push(newPost);
                 this._profile[action.data.komu].postEdit[action.data.user] = '';
                 this.render();
@@ -161,22 +169,27 @@ let store = {
                 break
 
             case 'LIKE-POST':
-                debugger
-                if (action.data.idPost > -1 &&  this._profile[action.data.idAthor].posts[action.data.idPost].likes.includes(action.data.idUser)) {
-                    let index = this._profile[action.data.idAthor].posts[action.data.idPost].likes.indexOf(action.data.idUser);
+                //Func like the post
+                const idAthor = parseInt(action.data.idAthor);
+                const idPost = parseInt(action.data.idPost)
+                if (idPost > -1 &&  this._profile[idAthor].posts[idPost].likes.includes(this._loginId)) {
+                    let index = this._profile[idAthor].posts[idPost].likes.indexOf(this._loginId);
                     if (index > -1) {
-                        this._profile[action.data.idAthor].posts[action.data.idPost].likes.splice(index, 1);
+                        this._profile[idAthor].posts[idPost].likes.splice(index, 1);
                     }
                 }else {
-                    this._profile[action.data.idAthor].posts[action.data.idPost].likes.push(action.data.idUser);
+                    this._profile[idAthor].posts[idPost].likes.push(this._loginId);
                 }
+                debugger
                 this.render();
                 break
 
             case "GET-LOGIN":
+                //send id login
                 return this._loginId;
 
             case 'SETLOGIN-LOGIN':
+                //auth
                 try {
                     if (this._profile[action.login].pass === action.pass) {
                         this._loginId = action.login;
@@ -191,11 +204,13 @@ let store = {
                 }
 
             case 'LOGOUT':
+                //logout
                 this._loginId = 0;
                 this.render();
                 break
 
             case 'GET-MESSAGES':
+                //send list messages
                 return this._dialog.list[this._loginId];
 
             case 'ADD-MESSAGEITEM':

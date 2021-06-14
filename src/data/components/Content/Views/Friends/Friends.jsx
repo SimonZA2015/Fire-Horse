@@ -3,12 +3,18 @@ import ItemFriends from "./More/ItemFriends/ItemFriends";
 
 import style from './Friends.module.css'
 
+
+const GetProfilesActionCreate = () => ({type: 'GET-PROFILES'});
+
+const GetLoginActionCreate = () => ({type: 'GET-LOGIN'});
+
+
 const Friends = ({props}) => {
 
-    const profileInfo = props.dispatch({type: 'GET-PROFILES'});
+    const profileInfo = props.dispatch(GetProfilesActionCreate);
     let id = parseInt((window.location.pathname).split('/')[2]);
     if (isNaN(id)) {
-        id = props.dispatch({type: 'GET-LOGIN'});
+        id = props.dispatch(GetLoginActionCreate);
     }
 
     let friends = [];

@@ -1,18 +1,33 @@
 import React, {useState} from 'react';
-
-import style from './Dialogs.module.css';
 import ListDialogs from "./More/ListDialogs/ListDialogs";
 import ListChat from "./More/ListChat/ListChat";
 
+import style from './Dialogs.module.css';
+
+
+const AddMessageItemActionCreate = (data) => ({
+    type: 'ADD-MESSAGEITEM',
+    data: data
+});
+
+const GetLoginActionCreate = () => ({type: 'GET-LOGIN'});
+
+const GetMessagesActionCreate = () => ({type: 'GET-MESSAGES'})
+
+const GetProfilesActionCreate = () => ({type: 'GET-PROFILES'})
+
+
+
 const Dialogs = ({props}) => {
 
-    const messagesList = props.dispatch({type: 'GET-MESSAGES'});
-    const profileInfo = props.dispatch({type: 'GET-PROFILES'});
+    const messagesList = props.dispatch(GetMessagesActionCreate());
+    const profileInfo = props.dispatch(GetProfilesActionCreate());
+    const loginId = props.dispatch(GetLoginActionCreate());
 
     function update() {
         let url = parseInt((window.location.pathname).split('/')[2]);
         if (isNaN(url)) {
-            url = 0;
+            url = loginId;
         }
         return url
     }
@@ -21,8 +36,8 @@ const Dialogs = ({props}) => {
 
     return (
         <div className={style.body} >
-            <ListDialogs profileInfo={profileInfo} messagesList={props.dispatch({type: 'GET-MESSAGES'})} setId={() => setId(update)} />
-            <ListChat send={(data) => props.dispatch({type: 'ADD-MESSAGEITEM', data: data})} profileInfo={profileInfo} messagesList={messagesList} id={id} idUsr={props.dispatch({type: 'GET-LOGIN'})} />
+            <ListDialogs profileInfo={profileInfo} messagesList={messagesList} setId={() => setId(update)} />
+            <ListChat send={(data) => props.dispatch(AddMessageItemActionCreate(data))} profileInfo={profileInfo} messagesList={messagesList} id={id} idUsr={loginId} />
         </div>
     )
 }

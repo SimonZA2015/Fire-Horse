@@ -4,10 +4,10 @@ import Profile from "./Views/Profile/Profile";
 import Dialogs from "./Views/Dialogs/Dialogs";
 import Music from "./Views/Music/Music";
 import {Route} from "react-router-dom";
-
-import style from './Content.module.css';
 import Friends from "./Views/Friends/Friends";
 import Feed from "./Views/Feed/Feed";
+
+import style from './Content.module.css';
 
 const Content = ({props}) => {
 

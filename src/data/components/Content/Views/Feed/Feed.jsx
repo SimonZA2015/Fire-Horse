@@ -1,14 +1,25 @@
 import React from 'react';
 import ListFeed from "./More/ListFeed/ListFeed";
 
+
+
+const GetLoginActionCreate = () => ({type: 'GET-LOGIN'});
+
+const GetProfilesActioneCreate = () =>({type: 'GET-PROFILES'});
+
+
+const LikePostActionCreate = (data) => ({type: 'LIKE-POST', data: data});
+
+
+
 const Feed = ({props}) => {
 
     return(
         <div>
             <ListFeed
-                likePost={(data) => props.dispatch({type: 'LIKE-POST', data: data})}
-                id={props.dispatch({type: 'GET-LOGIN'})}
-                profileInfo={props.dispatch({type: 'GET-PROFILES'})}
+                likePost={(data) => props.dispatch(LikePostActionCreate())}
+                id={props.dispatch(GetLoginActionCreate())}
+                profileInfo={props.dispatch(GetProfilesActioneCreate())}
             />
         </div>
     )
