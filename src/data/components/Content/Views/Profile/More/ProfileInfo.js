@@ -9,9 +9,9 @@ const ProfileInfo = (props) => {
             <div className={style.infoBlock} >
                 <h4>{props.name}</h4>
                 {/* eslint-disable-next-line no-mixed-operators */}
-                <div>{props.city && <span>Город: {props.city}</span> || <span>Город: неуказано</span>}</div>
+                <div>{props.city && <span>City: {props.city}</span> || <span>Город: неуказано</span>}</div>
                 {/* eslint-disable-next-line no-mixed-operators */}
-                <div>{props.age && <span>Возраст: {props.age}</span> || <span>Возраст: не указан</span>}</div>
+                <div>{props.age && <span>Old: {props.age}</span> || <span>Возраст: не указан</span>}</div>
                 <ButtonsBlock id={props.id} iam={props.iam} />
             </div>
         </div>

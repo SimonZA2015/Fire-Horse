@@ -5,15 +5,15 @@ import style from './styles/ButtonsBlock.module.css';
 
 const ButtonsBlock = (props) => {
 
-    let button1 = <NavLink className={style.nav} to={'/dialogs/' + (props.id - 1)} ><div className={style.button}>Написать</div></NavLink>
+    let button1 = <NavLink className={style.nav} to={'/dialogs/' + (props.id - 1)} ><div className={style.button}>Send message</div></NavLink>
     if (props.id === props.iam) {
-        button1 = <NavLink className={style.nav} to={'/sittings/account'} ><div className={style.button}>Редактировать</div></NavLink>
+        button1 = <NavLink className={style.nav} to={'/sittings/account'} ><div className={style.button}>Edit profile</div></NavLink>
     }
 
     return (
         <div className={style.body + ' ' + props.className}>
             {button1}
-            <NavLink className={style.nav} to={'/friends/' + props.id} ><div className={style.button}>Друзья</div></NavLink>
+            <NavLink className={style.nav} to={'/friends/' + props.id} ><div className={style.button}>Friends</div></NavLink>
         </div>
     )
 }
